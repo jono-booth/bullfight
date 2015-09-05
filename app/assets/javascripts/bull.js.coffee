@@ -20,12 +20,23 @@ class @Bull extends MoveableObject
       x_movement = Math.floor( abs_x_distance / abs_y_distance )
       y_movement = 1
 
-    if distance.x > 0
-      @sprite.position.x += x_movement * @speed * extra_speed
-    else
-      @sprite.position.x -= x_movement * @speed * extra_speed
+    if (Math.random() * 20 == 1) && abs_distance_x < 60 && abs_distance_y < 60
+      random_distance_x = Math.random() * 30
+      @sprite.position.x = object.position.x + random_distance
 
-    if distance.y > 0
-      @sprite.position.y += y_movement * @speed * extra_speed
+      random_distance_y = Math.random() * 30
+      @sprite.position.y = object.position.y + random_distance
+
+
     else
-      @sprite.position.y -= y_movement * @speed * extra_speed
+
+      if distance.x > 0
+        @sprite.position.x += x_movement * @speed * extra_speed
+      else
+        @sprite.position.x -= x_movement * @speed * extra_speed
+
+      if distance.y > 0
+        @sprite.position.y += y_movement * @speed * extra_speed
+      else
+        @sprite.position.y -= y_movement * @speed * extra_speed
+
