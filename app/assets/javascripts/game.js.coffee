@@ -21,7 +21,7 @@ end_game = ()->
 
 start_button = new StartButton(world)
 stage.addChild(start_button.button)
-start_button.button.on('mouseup', start_game)
+start_button.button.on('mouseup', start_game).on('touchend', start_game)
 
 bull_fighter = new BullFighter(world)
 bull = new Bull(difficulty)
