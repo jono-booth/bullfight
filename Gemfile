@@ -12,10 +12,10 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'slim-rails'
 
 # JavaScript
+gem 'therubyracer'
 gem 'coffee-rails'
 gem 'turbolinks'
-gem 'therubyracer', platforms: :ruby
-#gem 'uglifier'
+gem 'uglifier'
 
 gem 'rabl'
 gem 'oj'
