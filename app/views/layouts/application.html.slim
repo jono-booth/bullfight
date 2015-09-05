@@ -1,0 +1,8 @@
+doctype html
+html
+  head
+    = javascript_include_tag 'application', 'data-turbolinks-track'=>false
+    = javascript_include_tag 'pixi.min', 'data-turbolinks-track'=>false
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track'=>true
+  body
+    = yield
