@@ -1,7 +1,8 @@
 class @BullFighter extends MoveableObject
 
-  constructor: ()->
-    super({ texture: window.bull_fighter_texture, x: 450, y: 450 })
+  constructor: (world)->
+    @starting_position = { x: world.width - 100, y: world.height - 120 }
+    super({ texture: window.bull_fighter_texture, x: @starting_position.x, y: @starting_position.y })
 
     @sprite.interactive = true
     @sprite.buttonMode = true
@@ -22,8 +23,8 @@ class @BullFighter extends MoveableObject
 
   go_home: ()->
     @enable_drag()
-    @sprite.position.x = 450
-    @sprite.position.y = 450
+    @sprite.position.x = @starting_position.x
+    @sprite.position.y = @starting_position.y
     @last_position_x = @sprite.position.x
     @last_position_y = @sprite.position.y
     @still_for = 0

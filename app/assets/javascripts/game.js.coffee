@@ -1,4 +1,4 @@
-world = {width: 600, height: 600}
+world = {width: window.innerWidth, height: window.innerHeight }
 renderer = PIXI.autoDetectRenderer(world.width, world.height,{backgroundColor : 0xCC9B36})
 
 document.body.appendChild(renderer.view)
@@ -19,13 +19,13 @@ end_game = ()->
   timer.stop()
   stage.addChild(start_button.button)
 
-start_button = new StartButton
+start_button = new StartButton(world)
 stage.addChild(start_button.button)
 start_button.button.on('mouseup', start_game)
 
-bull_fighter = new BullFighter
+bull_fighter = new BullFighter(world)
 bull = new Bull(difficulty)
-timer = new Timer
+timer = new Timer(world)
 
 stage.addChild(bull_fighter.sprite)
 stage.addChild(bull.sprite)
