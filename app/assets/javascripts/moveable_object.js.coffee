@@ -14,13 +14,8 @@ class @MoveableObject
     if @abs_distance_from(object).x < 35 && @abs_distance_from(object).y < 35
       return true
 
-  killed_by: (world)->
-    if @sprite.position.x > world.width || @sprite.position.x < 0
-      true
-    else if @sprite.position.y > world.height || @sprite.position.y < 0
-      true
-    else
-      false
+  random_event: (chances)->
+    Math.floor(Math.random() * chances) == 1
 
   look_at: (object)->
     distance = @distance_from(object)

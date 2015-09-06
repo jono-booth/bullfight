@@ -1,7 +1,7 @@
 class @BullFighter extends MoveableObject
 
-  constructor: (world)->
-    @starting_position = { x: world.width - 100, y: world.height - 120 }
+  constructor: (args)->
+    @starting_position = args.position
     super({ texture: window.bull_fighter_texture, x: @starting_position.x, y: @starting_position.y })
 
     @sprite.interactive = true
@@ -25,20 +25,24 @@ class @BullFighter extends MoveableObject
     @enable_drag()
     @sprite.position.x = @starting_position.x
     @sprite.position.y = @starting_position.y
-    @last_position_x = @sprite.position.x
-    @last_position_y = @sprite.position.y
+    @save_last_position()
     @still_for = 0
 
   time_still_for: ()->
     @still_for
 
   detect_movement: ()->
-    if Math.abs(@last_position_x - @sprite.position.x) < 20 && Math.abs(@last_position_y - @sprite.position.y) < 20
+    if Math.abs(@last_position.x - @sprite.position.x) < 20 && Math.abs(@last_position.y - @sprite.position.y) < 20
       @still_for += 1
     else
       @still_for = 0
-      @last_position_x = @sprite.position.x
-      @last_position_y = @sprite.position.y
+      @save_last_position()
+
+  save_last_position: ()->
+    @last_position = {
+      x: @sprite.position.x,
+      y: @sprite.position.y
+    }
 
 
 

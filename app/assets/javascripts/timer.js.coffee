@@ -1,9 +1,9 @@
 class @Timer
-  constructor: (world)->
+  constructor: (args)->
     @time = 0
     @clock = new PIXI.Text(@time)
-    @clock.x = world.width - 90
-    @clock.y = 30
+    @clock.x = args.position.x
+    @clock.y = args.position.y
     @start()
 
   start: ()->

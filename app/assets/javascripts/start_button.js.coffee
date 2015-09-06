@@ -1,5 +1,5 @@
 class @StartButton
-  constructor: (world)->
+  constructor: (args)->
     style = {
         font : 'bold italic 36px Arial',
         fill : '#F7EDCA',
@@ -16,8 +16,8 @@ class @StartButton
     @button = new PIXI.Text("Start", style)
     @button.buttonMode = true
     @button.interactive = true
-    @button.x = world.width - 100
-    @button.y = world.height - 50
+    @button.x = args.position.x
+    @button.y = args.position.y
 
   button: ()->
     @button
